@@ -1,22 +1,22 @@
 <template>
     <Form @submit="submitContact" :validation-schema="contactFormSchema">
         <div class="form-group">
-            <label for="name">Tên</label>
+            <label for="name"><i class="fa-solid fa-user pr-1"></i>Tên</label>
             <Field name="name" type="text" class="form-control" v-model="contactLocal.name" />
             <ErrorMessage name="name" class="error-feedback" />
         </div>
         <div class="form-group">
-            <label for="email">E-mail</label>
+            <label for="email"><i class="fa-solid fa-envelope pr-1"></i>E-mail</label>
             <Field name="email" type="email" class="form-control" v-model="contactLocal.email" />
             <ErrorMessage name="email" class="error-feedback" />
         </div>
         <div class="form-group">
-            <label for="address">Địa chỉ</label>
+            <label for="address"><i class="fa-solid fa-location-dot pr-1"></i>Địa chỉ</label>
             <Field name="address" type="text" class="form-control" v-model="contactLocal.address" />
             <ErrorMessage name="address" class="error-feedback" />
         </div>
         <div class="form-group">
-            <label for="phone">Điện thoại</label>
+            <label for="phone"><i class="fa-solid fa-phone pr-1"></i>Điện thoại</label>
             <Field name="phone" type="tel" class="form-control" v-model="contactLocal.phone" />
             <ErrorMessage name="phone" class="error-feedback" />
         </div>
@@ -27,9 +27,9 @@
             </label>
         </div>
         <div class="form-group">
-            <button class="btn btn-primary">Lưu</button>
+            <button class="btn btn-primary"><i class="fa-solid fa-floppy-disk pr-1"></i>Lưu</button>
             <button v-if="contactLocal._id" type="button" class="ml-2 btn btn-danger" @click="deleteContact">
-                Xóa
+                <i class="fa-solid fa-trash pr-1"></i>Xóa
             </button>
         </div>
     </Form>
