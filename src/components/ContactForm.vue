@@ -33,6 +33,8 @@
             </button>
         </div>
     </Form>
+
+    
 </template>
 <script>
 import * as yup from "yup";
@@ -66,12 +68,29 @@ export default {
                     "Số điện thoại không hợp lệ."
                 ),
         });
+        // Kiểm tra xem có contact đã được truyền vào từ props hay chưa
+        // Nếu có, sử dụng dữ liệu từ contact để chỉnh sửa, nếu không, tạo một liên hệ mới
+        const contactLocal = this.contact ? { ...this.contact } : {
+            name: "", // Giá trị mặc định của Tên
+            email: "", // Giá trị mặc định của E-mail
+            address: "", // Giá trị mặc định của Địa chỉ
+            phone: "", // Giá trị mặc định của Điện thoại
+            favorite: false, // Giá trị mặc định của Liên hệ yêu thích
+            _id: null, // Giá trị mặc định của _id (null khi thêm mới)
+        };
+
         return {
-            // Chúng ta sẽ không muốn hiệu chỉnh props, nên tạo biến cục bộ
-            // contactLocal để liên kết với các input trên form
-            contactLocal: this.contact,
+            contactLocal,
             contactFormSchema,
         };
+        // return {
+        //     // Chúng ta sẽ không muốn hiệu chỉnh props, nên tạo biến cục bộ
+        //     // contactLocal để liên kết với các input trên form
+        //     //contactLocal: this.contact,
+        //     //contactFormSchema,
+            
+            
+        // };
     },
     methods: {
         submitContact() {
